@@ -25,7 +25,9 @@
 
 // }
 
-    // jednostruke povezane liste / singly linked list
+//...............................................................
+
+// // jednostruke povezane liste / singly linked list
 
 // void insert_after();
 // void insert_before();
@@ -53,13 +55,11 @@
 // 	temp=(struct node*)malloc(sizeof(struct node));
 //     temp->data=elem;
 //     temp->next=NULL;
-//     if(first==NULL)
-//     {
+//     if(first==NULL) {
 //         first=temp;
 //         last=temp;
 //     }
-//     else
-//     {
+//     else {
 //         last->next=temp;
 //         last=temp;
 //     }
@@ -84,17 +84,17 @@
 //      pom->data=elem;
 //      pom->next=temp;
 //      if (pom==last){
-// 	 temp=last;
+// 	    temp=last;
 //      }
 // }
 
 // void delete_after(NODE *pom) {
 // //if (isEmpty()) printf("List is empty");
 
-// temp=pom->next;
-// pom->next=temp->next;
-// temp->next=NULL;
-// free(temp);	
+//     temp=pom->next;
+//     pom->next=temp->next;
+//     temp->next=NULL;
+//     free(temp);	
 // }
 
 // void delete_actual(NODE *pom) {
@@ -109,81 +109,134 @@
 	
 // }
 
-// void delete_on_position(int pos)
-// {		
-// int count=1;
-// NODE *p, *q;
-// p=first;
-// q=NULL;
-// if (pos==1){
-// 	first=p->next;
-// 	free(p);
-// 	return;
-// }
-// while(pos!=count) {
-//  q=p;	
-//  p=p->next;
-//  count++;
-// }
-// delete_after(q);
+// void delete_on_position(int pos) {
+//     int count=1;
+//     NODE *p, *q;
+//     p=first;
+//     q=NULL;
+//     if (pos==1){
+// 	    first=p->next;
+// 	    free(p);
+// 	    return;
+//     }
+//     while(pos!=count) {
+//     q=p;	
+//     p=p->next;
+//     count++;
+//     }
+
+//     delete_after(q);
 
 // }
 
 // void delete_by_value(int value){
-// NODE *p,*q;
+//     NODE *p,*q;
     
 //     p=first;
 //     q=NULL;
-//     while(p!=NULL)
-//     {
-//         if(value==p->data)
-//         break;
-//         else
-//         {
+//     while(p!=NULL) {
+//         if(value==p->data) break;
+//         else {
 //         q=p;	
 //         p=p->next;
-//             }
+//         }
 //     }
-//     if((p==first)&(first==last))
-//     {
+
+//     if((p==first)&(first==last)) {
 //         first=last=NULL;
 //         free(p);
 //         printf("Lista je sada prazna!");
-//     }
-//     else if(p==last)
-//     {
+
+//     } else if(p==last) {
 //         q->next=NULL;
 //         free(p);
 //         last=q;
-//     }
-//     else
-//     {
+
+//     } else {
 //         q->next=p->next;
 //         free(p);
-//     }	
+//     }
+    
 // }
 
 
-// void display()
-// {
+// void display() {
+
 //     temp=first;
 //     printf("First->");
-//     while(temp!=NULL)
-//     {
+
+//     while(temp!=NULL) {
 //     //printf("|%d|%d| --> ",temp->data,temp->next);
 //     printf("|%d| --> ",temp->data);
 //     temp=temp->next;
 //     }
-//       printf("NULL");
+
+//     printf("NULL");
 // }
 
-//..........................................
+// int main() {
+// 	int ch;
+// 	int element;
+// 	printf("List is empty, add any element: ");
+// 	scanf("%d",&element);
+//     create(element);
+//     do{ 
+//     printf("\nSingle Linked List");
+//     printf("\n------------");
+//     printf("\n1.Insert at first\n2.Insert at last\n3.Delete first\n4.Delete by Position\n5.Delete by Value\n6.Display\n7.Exit");
+//     printf("\n\n-->Enter Your Choice:");
+//     scanf("%d",&ch);
+ 
+//         switch(ch) {
+        	
+//             case 1: 
+//                 printf("\n-->Enter value:");
+//                 scanf("%d",&element);
+//                 insert_before(first,element);
+//                 break;
+//             case 2: 
+//                 printf("\n-->Enter value:");
+//                 scanf("%d",&element);
+//                 insert_after(last,element);
+//                 break;
+//             case 3: 
+//                 delete_actual(first);
+//                 break;
+//             case 4:
+//                 printf("\n-->Enter position to delete:");
+//                 scanf("%d",&element);
+//                 delete_on_position(element);
+//                 break;
+//             case 5:
+//                 printf("\n-->Enter value to delete:");
+//                 scanf("%d",&element);
+//                 delete_by_value(element);
+//                 break;
+//             case 6:
+//                 display();
+//                 break;
+//             case 7:
+//                 exit(0);
+         
+//             default:
+//                 printf("\nError-->Enter a valid choice!!"); 
+//                 exit(0);
+//         }
 
-// typedef struct node
-// {
+//     } while(1);
+    
+//     return 0;
+    
+// }
+
+//............................................................
+
+// INVERTOAVANJE LISTE I KONKATENACIJA DVE LISTE
+
+// typedef struct node {
 //     int data;
 //     struct node *next;
-// }NODE;
+// } NODE;
 
 // NODE *temp=NULL;
 // NODE *first[3]={NULL,NULL,NULL}; //an array of pointers named first, which can hold three pointers of type NODE.
@@ -222,6 +275,38 @@
 // }
 
 //..............................................
+
+
+// typedef struct node {
+//     int data;
+//     struct node *next;
+// } NODE;
+
+// NODE *temp = NULL;
+// NODE *first[3] = {NULL, NULL, NULL};
+// NODE *last[3] = {NULL, NULL, NULL};
+
+// NODE *search(NODE *list, int value) {
+
+//     NODE *ptr;
+
+//     for(ptr = list; ptr != NULL && ptr -> data != value; ptr = ptr -> next );
+
+//     return ptr;
+// }
+
+// int isPresent(NODE *head, int value) {
+//     NODE *t = head;
+
+//     while(t != NULL ) {
+//         if(t -> data == value) return 1;
+//         t = t -> next;
+//     }
+
+//     return 0;
+// }
+
+//..................................................
 // Dvostruko ulancane liste / doubly linked list
 
 // struct Node {
@@ -301,7 +386,7 @@
 //         temp = temp -> prev;
 //     }
 // }
-
+ 
 // Kruzno povezana lista / circular linked list
 
 // typedef struct Node {
