@@ -276,6 +276,297 @@
 
 //..............................................
 
+// JEDNOSTRUKO POVEZANE LISTE - ZADACI
+
+// typedef struct node {
+//     int data;
+//     struct node *next;
+// } node;
+
+// node *first, *last;
+
+// int insert(int x) {
+//     node* temp;
+//     temp = (node*)malloc(sizeof(node));
+//     temp -> data = x;
+//     if(first == NULL) {
+//         first = last = temp;
+//     } else {
+//         last -> next = temp;
+//         temp -> next = NULL;
+//         last = temp;
+//     }
+// }
+
+// int isInTheList(int value) {
+    
+//     node *t = first;
+//     while(t != NULL) {
+//         if (t -> data == value) return 1;
+        
+//         t = t -> next;
+//     }
+    
+//     return 0;
+// }
+
+// node* findElement(int value) {
+//     node *i;
+    
+//     for(i = first; i != NULL; i = i -> next) {
+//         if(i -> data == value) {
+//             return i;
+//         } 
+//     } 
+// }
+
+// void display() {
+    
+//     node *i;
+    
+//     for(i = first; i != NULL; i = i -> next) printf("%d ", i -> data); 
+// }
+
+// int main() {
+    
+//     insert(1);
+//     insert(2);
+//     insert(3);
+//     display();
+
+//     printf("%d\n", isInTheList(1));
+//     printf("%d\n", isInTheList(4));
+    
+//     if(isInTheList(1)) printf("%d is in the list\n", 1);
+    
+//     printf("%d", findElement(2));
+//     printf("%d", findElement(4));
+//     printf("%d", findElement(3));
+    
+// }
+
+//.................................................................
+
+// #include <stdio.h>
+// #include <stdlib.h>
+
+// typedef struct node {
+//     int data;
+//     struct node *next;
+// } node;
+
+// node *first[3]={NULL,NULL,NULL};
+// node *last[3]={NULL,NULL,NULL};
+
+// void replaceElement(int listNum, int el1, int el2) {
+//     node *i;
+    
+//     for(i = first[listNum]; i != NULL; i = i -> next) {
+        
+//         if(i -> data == el1) i -> data = el2;
+        
+//     }
+// }
+
+// void display(node *first) {
+    
+//     node *i;
+    
+//     for(i = first; i != NULL; i = i -> next) printf("%d ", i -> data); 
+    
+//     printf("\n");
+// }
+
+// void insert(int x, int listNum) {
+//     node* temp;
+//     temp = (node*)malloc(sizeof(node));
+//     temp -> data = x;
+//     if(first[listNum] == NULL) {
+//         first[listNum] = last[listNum] = temp;
+//     } else {
+//         last[listNum] -> next = temp;
+//         last[listNum] = temp;
+//     }
+    
+// }
+
+// int main() {
+    
+
+//     insert(1, 1);
+//     insert(3, 1);
+//     insert(2, 1);
+//     insert(3, 1);
+//     insert(4, 1);
+//     insert(3, 1);
+//     insert(3, 1);
+//     display(first[1]);
+//     replaceElement(1, 3, 7);
+//     display(first[1]);
+    
+//     return 0;
+    
+// }
+
+//.....................................................
+
+// #include <stdio.h>
+// #include <stdlib.h>
+
+// typedef struct node {
+//     int data;
+//     struct node *next;
+// } node;
+
+// node *first[3] = {NULL, NULL, NULL};
+// node *last[3] = {NULL, NULL, NULL};
+
+// void insertAtHead(int x, int listNum) {
+    
+//     node *temp = (node*)malloc(sizeof(node));
+
+//     temp -> data = x;
+//     temp -> next = NULL;
+
+//     if(first[listNum] == NULL) {
+//         first[listNum] = temp;
+//         last[listNum] = temp;
+//     } else {
+//         temp -> next = first[listNum];
+//         first[listNum] = temp;
+//     }
+// }
+
+// void deleteAtHead(int listNum) {
+//     node *temp = first[listNum];
+
+//     first[listNum] = first[listNum] -> next;
+//     temp -> next = NULL;
+//     free(temp);
+// }
+
+// void display(node *first) {
+    
+//     node *i;
+    
+//     for(i = first; i != NULL; i = i -> next) printf("%d ", i -> data); 
+    
+//     printf("\n");
+// }
+
+// int compareLists(node *l1, node *l2) {
+//     node *i;
+//     node *j;
+    
+//     for(i = l1, j = l2; i != NULL && j != NULL; ) {
+        
+//         if(i -> data != j -> data) return 0;
+//         i = i-> next;
+//         j = j -> next;
+        
+//     }
+    
+//     return 1;
+// }
+
+// int main() {
+    
+//     insertAtHead(4, 1);
+//     insertAtHead(3, 1);
+//     insertAtHead(2, 1);
+//     insertAtHead(1, 1);
+//     deleteAtHead(1);
+//     display(first[1]);
+    
+//     insertAtHead(4, 2);
+//     insertAtHead(3, 2);
+//     insertAtHead(2, 2);
+    
+//     insertAtHead(1, 0);
+    
+//     printf("%d", compareLists(first[1], first[2]));
+//     printf("%d", compareLists(first[1], first[0]));
+    
+//     return 0;
+    
+    
+// }
+
+//................................................................
+
+// #include <stdio.h>
+// #include <stdlib.h>
+
+// typedef struct node {
+//     int data;
+//     struct node *next;
+// } node;
+
+// node *first, *last, *temp;
+
+// int insert(int x) {
+//     temp = (node*)malloc(sizeof(node));
+//     temp -> data = x;
+//     temp -> next = NULL;
+    
+//     if(first ==NULL) {
+//         first = temp;
+//         last = temp;
+//     } else {
+    
+//     last -> next = temp;
+//     last = temp;
+//     }
+    
+// }
+
+// int maxNum() {
+//     int max = first -> data;
+//     temp = first -> next;
+    
+//     for(; temp != NULL; temp = temp -> next) {
+        
+//         if(temp -> data > max ) max = temp -> data;
+        
+//     }
+    
+//     return max;
+// }
+
+// int calcSum() {
+    
+//     int sum = 0;
+    
+//     for(node *i = first; i != NULL; i = i -> next) {
+//         sum += i -> data;
+//     }
+    
+//     return sum;
+    
+// }
+
+// void display() {
+    
+//     for(node *i = first; i != NULL; i = i -> next) printf("%d ", i -> data); 
+    
+//     printf("\n");
+// }
+
+// int main() {
+    
+//     insert(1);
+//     insert(2);
+//     insert(7);
+//     insert(3);
+
+//     display();
+//     printf("%d\n", maxNum());
+//     printf("%d\n", calcSum());
+    
+// }
+
+//..............................................................
+
 
 // typedef struct node {
 //     int data;
@@ -307,6 +598,7 @@
 // }
 
 //..................................................
+
 // Dvostruko ulancane liste / doubly linked list
 
 // struct Node {
@@ -386,6 +678,19 @@
 //         temp = temp -> prev;
 //     }
 // }
+
+// int main() {
+
+// 	head = NULL; // empty list. set head as NULL. 
+	
+// 	InsertAtTail(2); Print(); ReversePrint();
+// 	InsertAtTail(4); Print(); ReversePrint();
+// 	InsertAtHead(6); Print(); ReversePrint();
+// 	InsertAtTail(8); Print(); ReversePrint();
+	
+// }
+
+//........................................................................
  
 // Kruzno povezana lista / circular linked list
 
@@ -438,7 +743,7 @@
 
 //     if(front == NULL) printf("Empty");
 //     else {
-//         pirintf("\n");
+//         printf("\n");
 
 //         for(;rear != temp; temp = temp -> next) {
 //             printf("\n%d address=%u next=%u\t",temp->info,temp,temp->next);
@@ -448,7 +753,130 @@
 //     }
 // }
 
-//..........................................
+// int main() {
+//     int chc;
+
+//     do {
+//     printf("\nMenu\n\t 1 to create the element : ");
+//     printf("\n\t 2 to delete the element : ");
+//     printf("\n\t 3 to display the list : ");
+//     printf("\n\t 4 to exit from main : ");
+//     printf("\nEnter your choice : ");
+//     scanf("%d",&chc);
+    
+//         switch(chc) {
+//             case 1:
+//                 create();
+//                 break;
+         
+//             case 2:
+//                 del();
+//                 break;
+     
+//             case 3:
+//                 display();
+//                 break;
+     
+//             case 4:
+//                 return 1;
+             
+//             default:
+//                 printf("\nInvalid choice :");
+//         }
+//     } while(1);
+ 
+//     return 0;
+// }
+
+//....................................................................
+
+// ZADACI
+
+// typedef struct node {
+//     int data;
+//     struct node *next;
+//     struct node *prev;
+// } node;
+
+// node *first, *last;
+
+// void insertAtTail(int x) {
+//     node *temp = (node*)malloc(sizeof(node));
+    
+//     temp -> data = x;
+    
+//     if(first == NULL) {
+//         temp -> next = NULL;
+//         temp -> prev = NULL;
+//         first = temp;
+//         last = temp;
+//     } else {
+//         last -> next = temp;
+//         temp -> prev = last;
+//         temp -> next = NULL;
+//         last = temp;
+//     }
+// }
+
+// void insertAtHead(int x) {
+//     node *temp = (node*)malloc(sizeof(node));
+    
+//     temp -> data = x;
+    
+//     if(first == NULL) {
+//         first = temp;
+//         last = temp;
+//     } else {
+//         first -> prev = temp;
+//         temp -> next = first;
+//         first = temp;
+//     }
+// }
+
+// void display() {
+//     node *temp = (node*)malloc(sizeof(node));
+    
+//     for(temp = first; temp != NULL; temp = temp -> next) {
+//         printf("%d ", temp -> data);
+//     }
+    
+//     printf("\n");
+//     free(temp);
+// }
+
+// void deleteAtTail() {
+//     node *t = last;
+//     last = last -> prev;
+//     last -> next = NULL;
+//     t -> prev = NULL;
+//     free(t);
+// }
+
+// void deleteAtHead() {
+//     node *t = (node*)malloc(sizeof(node));
+    
+//     t = first;
+//     first = first -> next;
+//     t -> next = NULL;
+//     free(t);
+// }
+
+// int main() {
+//     insertAtTail(1);
+//     insertAtTail(2);
+//     insertAtTail(3);
+//     insertAtHead(5);
+//     display();
+//     deleteAtHead();
+//     display();
+//     deleteAtTail();
+//     display();
+    
+//     return 0;
+// }
+
+//............................................................................
+
 // STEK / STACK
 
 // implementiranje preko niza
@@ -552,8 +980,40 @@
 // void push(int);
 // int pop();
 // void display();
-
 // NODE *top = NULL;
+
+// int main() {
+//     int opn,elem;
+//     do {
+//         clrscr();
+//         printf("\n ### Linked List Implementation of STACK Operations ### \n\n");
+//         printf("\n Press 1-Push, 2-Pop, 3-Display,4-Exit\n");
+//         printf("\n Your option ? ");
+//         scanf("%d",&opn);
+//         switch(opn) {
+//         case 1:
+//             printf("\n\nRead the Element tobe pushed ?");
+//             scanf("%d",&elem);
+//             Push(elem);
+//             break;
+//         case 2:
+//             elem=Pop();
+//             if(elem != -1)
+//                 printf(" Deleted Node(From Top)with the Data: %d\n",elem);
+//             break;
+//         case 3: printf("Linked List Implementation of Stack: Status:\n");
+//             Display(); break;
+//         case 4: printf("\n\n Terminating \n\n"); break;
+//         default: printf("\n\nInvalid Option !!! Try Again !! \n\n");
+//             break;
+//         }
+//         printf("\n\n\n\n  Press a Key to Continue . . . ");
+//         getch();
+//     } while(opn != 4);
+//
+//      return 0;
+// }
+
 
 // void push (int info) {
 //     NODE *temp;
@@ -564,7 +1024,7 @@
 //         temp -> link = top;
 //         top = temp;
 //         printf("Node has been inserted at the top (front) successfully");
-//         }
+//     }
 // }
 
 // int pop() {
@@ -595,6 +1055,8 @@
 //     }
 // }
 
+//..................................................................
+
 // Dva steka preko jednog niza
 
 // #define SIZE 10
@@ -608,8 +1070,7 @@
 // }
 
 // int Sempty(stno) {
-//     switch (stno)
-//     {
+//     switch (stno) {
 //     case 1:
 //         if (top[1] == -1) return 1;
 //         else return 0;
@@ -666,13 +1127,46 @@
 //     }
 // }
 
+// int main() {                        
+//     int opn,elem,stno;
+//     do {
+//         clrscr();
+//         printf("\n ### Stack Operations ### \n\n");
+//         printf("\n Stack Number (1,2): ");
+//         scanf("%d",&stno);
+//         printf("\n Press 1-Push, 2-Pop,3-Display,4-Exit\n");
+//         printf("\n Your option ? ");
+//         scanf("%d",&opn);
+ 
+//         switch(opn) {
+//         case 1: printf("\n\nRead the element to be pushed ?");
+//             scanf("%d",&elem);
+//             push(elem,stno); break;
+//         case 2: elem=pop(stno);
+//             if( elem != -1)
+//                 printf("\n\nPopped Element is %d \n",elem);
+//             break;
+//         case 3: printf("\n\nStatus of Stack %d \n\n",stno);
+//             display(stno); break;
+//         case 4: printf("\n\n Terminating \n\n"); break;
+//         default: printf("\n\nInvalid Option !!! Try Again !! \n\n");
+//             break;
+//         }
+//         printf("\n\n\n\n  Press a Key to Continue . . . ");
+//         getch();
+//     } while(opn != 4);
+
+//     return 0;
+// }
+
+
 //.......................................
 
 // REDOVI / QUEUES 
 
-// #define SIZE 5
+// imprementacija kruznog reda preko niza / circular queue
 
-// // imprementacija kruznog reda preko niza / circular queue
+// #define SIZE 5
 
 // int CQ[SIZE], f = -1, r = -1;
 
@@ -765,6 +1259,8 @@
 
 //     } while(opn != 4);
 // }
+
+//.............................................................
 
 // Implementacija reda preko ulancanje liste
 
@@ -869,7 +1365,7 @@
 //     } while (opn != 4);
 // }
 
-//........................................
+//.......................................................
 
 // Red sa dva pristupna kraja
 
@@ -895,7 +1391,7 @@
 //     if(F == (R + 1) % SIZE) {
 //         printf("Queue Overflow");
 //     } else if (R == -1) {
-//         F = 0
+//         F = 0;
 //         R = 0;
 //         queue[R] = x;
 //     } else {
