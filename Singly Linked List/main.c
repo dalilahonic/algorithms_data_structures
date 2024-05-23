@@ -25,7 +25,7 @@
 // 	if (first==NULL) return 1;
 // 	else return 0;
 // }
-
+//
 // void create(int elem) {
 // 	temp=(struct node*)malloc(sizeof(struct node));
 //     temp->data=elem;
@@ -39,7 +39,7 @@
 //         last=temp;
 //     }
 // }
-
+//
 // void insert_after(NODE *pom, int elem) {
 	
 //     temp=(struct node*)malloc(sizeof(struct node));

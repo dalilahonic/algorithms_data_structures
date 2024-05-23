@@ -333,3 +333,73 @@
 
 // ZADACI
 
+// typedef struct node {
+//     int data;
+//     struct node *next;
+// } node;
+
+// node *front, *rear;
+
+// void insert(int x) {
+//     node *temp = (node*)malloc(sizeof(node));
+
+//     if(temp == NULL) return;
+
+//     temp -> data = x;
+//     temp -> next = NULL;
+
+//     if(front == NULL) {
+//         front = temp;
+//         rear = temp;
+//     } else {
+//         rear -> next = temp;
+//         rear = temp;
+//     }
+
+// }
+
+// int delete() {
+//     if(front == NULL) return -1;
+
+//     node *t = (node*)malloc(sizeof(node));
+//     int elem;
+
+//     elem = front -> data;
+
+//     if(front == rear) {
+//         front = NULL;
+//         rear = NULL;
+//     } else {
+//     t = front;
+//     front = front -> next;
+//     t-> next = NULL;
+//     free(t);
+
+//     }
+
+//     return elem;
+// }
+
+// void display() {
+//     node *temp = (node*)malloc(sizeof(node));
+    
+//     for(temp = front; temp != NULL; temp = temp -> next) {
+//         printf("%d ", temp -> data);
+//     }
+//     printf("\n");
+// }
+
+// int main() {
+    
+//     insert(1);
+//     insert(2);
+//     insert(3);
+//     display();
+//     delete();
+//     display();
+    
+//     return 0;
+// }
+
+//.............................................................
+
