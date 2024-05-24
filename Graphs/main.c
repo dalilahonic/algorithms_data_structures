@@ -163,6 +163,8 @@
 
 //..............................................
 
+// weighted graph / tezinski graf
+
 struct Graph {
     struct Node* head[N];
 };
