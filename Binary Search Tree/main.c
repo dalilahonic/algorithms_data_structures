@@ -18,7 +18,7 @@ struct node *newNode(int item) {
 }
 
 void inorder(struct node *root) {
-    if(root != NULL) {
+    if(root != NULL) { 
         inorder(root -> left);
         printf("%d \n", root -> key);
         inorder(root -> right);
