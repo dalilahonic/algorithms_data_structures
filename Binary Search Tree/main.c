@@ -3,6 +3,7 @@
 
 #include<stdio.h>
 #include<stdlib.h>
+#include <stdbool.h>
 
 struct node {
     int key;
@@ -76,6 +77,49 @@ struct node* deleteNode(struct node* root, int key) {
     return root;
 }
 
+//....................................................
+
+int maxValueNode(struct node *root) {
+    struct node *current = root;
+
+    while(current -> right != NULL) current = current -> right;
+
+    return current -> key;
+}
+
+int max_depth(struct node *root) {
+    if(root == NULL) return 0;
+    else {
+        int leftDepth = max_depth(root -> left);
+        int rightDepth = max_depth(root -> right);
+
+        return (leftDepth > rightDepth ? leftDepth : rightDepth) + 1;
+    }
+}
+
+// bool isBalanced(struct node *root) {
+
+//     if(root == NULL) return 0;
+//         int leftDepth = max_depth(root -> left);
+//         int rightDepth = max_depth(root -> right);
+
+//         if ((leftDepth - rightDepth <= 1 || rightDepth - leftDepth <= 1) && isBalancd(root -> left) && isBalanced(root -> right)) {
+//             return true;
+//         } else {
+//             return false;
+//         }
+
+// }
+
+//  Implementiraj funkciju koja rekurzivno broji listove u binarnom stablu.
+int countLeaves(struct node *root) {
+
+    if(root == NULL) return 0;
+    if(root -> left == NULL && root -> right == NULL) return 1;
+    
+    return countLeaves(root -> left) + countLeaves(root -> right);
+}
+
 int main() {
     struct node *root = NULL;
     root = insert(root, 32);
@@ -85,8 +129,12 @@ int main() {
 
     inorder(root);
 
-    root = deleteNode(root, 46);
-    inorder(root);
+    // root = deleteNode(root, 46);
+    // inorder(root);
+
+    printf("Max value node je %d\n", maxValueNode(root));
+    printf("Max depth: %d\n", max_depth(root));
+    printf("Leaves: %d\n", countLeaves(root));
 
     return 0;
 }
